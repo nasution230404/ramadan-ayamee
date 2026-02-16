@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramadan Untuk Ayamee</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#7b1fa2,#1976d2,#0d47a1);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
+    color:white;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+    transition:1s;
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(30px);
+}
+
+.card{
+    background:rgba(255,255,255,0.1);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 40px rgba(255,215,0,0.6);
+    max-width:520px;
+}
+
+.moon{
+    font-size:70px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+.glow{
+    color:rgb(190, 199, 24);
+    text-shadow:0 0 10px rgb(205, 117, 11),0 0 20px orange;
+}
+
+p{
+    margin-top:15px;
+    line-height:1.8;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:rgb(179, 20, 157);
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:white;
+    transform:scale(1.1);
+}
+
+/* Bintang */
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:0.2;}
+    to{opacity:1;}
+}
+
+.mosque{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:140px;
+    background:linear-gradient(to top, #000 40%, transparent);
+}
+
+@media(max-width:600px){
+    .card{padding:25px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Bintang -->
+<div class="star" style="top:10%;left:20%"></div>
+<div class="star" style="top:30%;left:70%"></div>
+<div class="star" style="top:60%;left:40%"></div>
+<div class="star" style="top:80%;left:85%"></div>
+
+<!-- HALAMAN 1 -->
+<div class="page" id="page1">
+    <div class="card">
+        <div class="moon">🌙</div>
+        <h1 class="glow">Untuk Ayamee 🤍</h1>
+        <p>Selamat menyambut Bulan Suci Ramadan.</p>
+        <h1>By.Zalila Ayatillah </h1>
+        <button onclick="next1()">Lanjut ➜</button>
+    </div>
+</div>
+
+<!-- HALAMAN 2 -->
+<div class="page hidden" id="page2">
+    <div class="card">
+        <h1 class="glow">Marhaban Ya Ramadan ✨</h1>
+        <p>
+            Semoga Ramadan tahun ini membawa kebahagiaan, 
+            kesehatan, dan keberkahan untuk Ayamee.
+            Semoga setiap doa yang dipanjatkan
+            dikabulkan oleh Allah SWT 🤍
+        </p>
+        <button onclick="next2()">Lanjut ➜</button>
+        <button onclick="back1()">⬅ Kembali</button>
+    </div>
+</div>
+
+<!-- HALAMAN 3 -->
+<div class="page hidden" id="page3">
+    <div class="card">
+        <h1 class="glow">Doa Terbaik Untuk Ayamee 🌙</h1>
+        <p>
+            Ya Allah, lindungi Ayamee di setiap langkahnya.
+            Jadikan Ramadan ini penuh ampunan,
+            penuh cinta, dan penuh keberkahan.
+            Semoga Ayamee selalu dalam kebaikan dan kebahagiaan. 🤲✨
+        </p>
+        <button onclick="back2()">⬅ Kembali</button>
+    </div>
+</div>
+
+<div class="mosque"></div>
+
+<script>
+function next1(){
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+}
+
+function next2(){
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("page3").classList.remove("hidden");
+}
+
+function back1(){
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("page1").classList.remove("hidden");
+}
+
+function back2(){
+    document.getElementById("page3").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
